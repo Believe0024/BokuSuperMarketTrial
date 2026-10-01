@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
     },
     color: {
     type: String,
-    //required: true
+    
   },
 },
 {timestamps: true}, //Date created and updated at
