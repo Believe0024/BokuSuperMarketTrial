@@ -3,9 +3,9 @@ const Product = require(`../Models/Products`);
 //create a product
 exports.createProducts = async (req, res) => {
     try {
-        const { name, size, description, price, quantity } = req.body;
+        const { name, size, description, price, quantity, color } = req.body;
 
-        const product = new Product({ name, size, description, price, quantity });
+        const product = new Product({ name, size, description, price, quantity, color });
         await product.save();
         res.status(201).json({ message: 'Product created successfully', product });
     } catch (error) {
@@ -17,8 +17,8 @@ exports.createProducts = async (req, res) => {
 exports.updateProducts = async (req, res) => {
     try {
         const { id } = req.params; //where id is the product to be updated
-        const { name, size, description, price, quantity } = req.body;
-        const product = await Product.findByIdAndUpdate(id, { name, size, description, price, quantity }, { new: true });
+        const { name, size, description, price, quantity, color } = req.body;
+        const product = await Product.findByIdAndUpdate(id, { name, size, description, price, quantity, color }, { new: true });
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
         }   
