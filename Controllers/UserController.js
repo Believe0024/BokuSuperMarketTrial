@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 exports.createUser = async (req, res) => {
     try {
         //request body
-        const { name, email, password, gender, phone, role } = req.body;
+        const { name, email, password, gender, phone, role, HasAdminAccess } = req.body;
 
         //check if all required fields are provided
         if (!name || !email || !password || !gender || !phone || !role) {
